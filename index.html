@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#6C63FF">
+    <meta name="description" content="MedTime - تطبيق تذكير بمواعيد الأدوية">
+
+    <title>MedTime</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- رأس التطبيق -->
+    <header class="top-bar">
+        <div>
+            <p class="hello">مرحباً 👋</p>
+            <h1>MedTime</h1>
+        </div>
+
+        <button class="icon-btn" id="themeBtn" aria-label="الوضع الليلي">
+            🌙
+        </button>
+    </header>
+
+
+    <!-- الدواء القادم -->
+    <section class="next-medicine">
+
+        <div class="section-title">
+            <span>الدواء القادم</span>
+            <span class="status">● اليوم</span>
+        </div>
+
+        <div class="medicine-card">
+
+            <div class="medicine-icon">
+                💊
+            </div>
+
+            <div class="medicine-info">
+                <h2 id="nextMedicineName">لا توجد أدوية</h2>
+                <p id="nextMedicineTime">أضف أول موعد لك</p>
+            </div>
+
+            <div class="countdown">
+                <span id="countdown">--:--</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- مواعيد اليوم -->
+    <section class="today-section">
+
+        <div class="section-title">
+            <h2>مواعيد اليوم</h2>
+            <span id="todayDate"></span>
+        </div>
+
+        <div id="medicineList" class="medicine-list">
+
+            <div class="empty-state">
+                <div class="empty-icon">💊</div>
+                <h3>لا توجد مواعيد</h3>
+                <p>اضغط على + لإضافة دواء وتحديد وقت التذكير.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- زر الإضافة -->
+    <button class="add-btn" id="addMedicineBtn">
+        <span>＋</span>
+        إضافة دواء
+    </button>
+
+
+    <!-- شريط التنقل -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active">
+            <span>⌂</span>
+            <small>الرئيسية</small>
+        </button>
+
+        <button class="nav-item">
+            <span>◷</span>
+            <small>المواعيد</small>
+        </button>
+
+        <button class="nav-item add-nav" id="navAdd">
+            <span>＋</span>
+        </button>
+
+        <button class="nav-item">
+            <span>✓</span>
+            <small>السجل</small>
+        </button>
+
+        <button class="nav-item">
+            <span>⚙</span>
+            <small>الإعدادات</small>
+        </button>
+
+    </nav>
+
+
+    <!-- نافذة إضافة دواء -->
+    <div class="modal" id="medicineModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>إضافة دواء</h2>
+
+                <button class="close-btn" id="closeModal">
+                    ×
+                </button>
+            </div>
+
+            <label>
+                اسم الدواء
+            </label>
+
+            <input
+                type="text"
+                id="medicineName"
+                placeholder="مثال: الدواء الخاص بي"
+            >
+
+            <label>
+                وقت التذكير
+            </label>
+
+            <input
+                type="time"
+                id="medicineTime"
+            >
+
+            <label>
+                ملاحظات
+            </label>
+
+            <input
+                type="text"
+                id="medicineNote"
+                placeholder="ملاحظة اختيارية"
+            >
+
+            <button class="save-btn" id="saveMedicine">
+                حفظ الموعد
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
