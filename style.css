@@ -1,1 +1,660 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
 
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #554de0;
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #20212a;
+    --muted: #858894;
+    --border: #e9e9ef;
+    --success: #35b875;
+    --danger: #ef5b68;
+}
+
+body {
+    font-family:
+        Arial,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    min-height: 100vh;
+    padding-bottom: 100px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 20px 18px;
+
+    background: var(--bg);
+}
+
+.hello {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+.top-bar h1 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.icon-btn {
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: var(--card);
+
+    font-size: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.icon-btn:active {
+    transform: scale(0.9);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 0 18px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 18px 2px 12px;
+}
+
+.section-title h2,
+.section-title span:first-child {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.status {
+    font-size: 12px !important;
+    color: var(--success) !important;
+}
+
+/* =========================
+   NEXT MEDICINE
+========================= */
+
+.medicine-card {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    min-height: 120px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #8b84ff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 12px 30px rgba(108, 99, 255, 0.25);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.medicine-card:active {
+    transform: scale(0.98);
+}
+
+.medicine-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    font-size: 27px;
+}
+
+.medicine-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.medicine-info h2 {
+    font-size: 17px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.medicine-info p {
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    opacity: 0.85;
+}
+
+.countdown {
+    font-size: 15px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   TODAY LIST
+========================= */
+
+.today-section {
+    margin-top: 25px;
+}
+
+.medicine-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.empty-state {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    border-radius: 22px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================
+   MEDICINE ITEM
+========================= */
+
+.medicine-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.04);
+
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #efedff;
+
+    font-size: 22px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.item-info p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.item-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    border: none;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px;
+
+    background: #f3f3f7;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.action-btn:active {
+    transform: scale(0.85);
+}
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-btn {
+    position: fixed;
+
+    right: 18px;
+    bottom: 82px;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    border: none;
+
+    padding: 14px 20px;
+
+    border-radius: 18px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow:
+        0 10px 25px rgba(108, 99, 255, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.add-btn span {
+    font-size: 22px;
+}
+
+.add-btn:active {
+    transform: scale(0.92);
+}
+
+.add-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    height: 68px;
+
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.1);
+
+    backdrop-filter: blur(15px);
+}
+
+.nav-item {
+    border: none;
+    background: transparent;
+
+    color: var(--muted);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 4px;
+
+    cursor: pointer;
+
+    min-width: 55px;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-item span {
+    font-size: 20px;
+}
+
+.nav-item small {
+    font-size: 9px;
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-item:active {
+    transform: scale(0.85);
+}
+
+.add-nav {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 16px;
+
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+}
+
+.add-nav small {
+    display: none;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 24px 20px 30px;
+
+    background: var(--card);
+
+    border-radius: 30px 30px 0 0;
+
+    animation: modalUp 0.3s ease;
+}
+
+@keyframes modalUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    font-size: 21px;
+}
+
+.close-btn {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #f1f1f5;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.modal-content label {
+    display: block;
+
+    margin: 15px 2px 7px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.modal-content input {
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.modal-content input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.save-btn {
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.save-btn:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+    --bg: #101117;
+    --card: #191b24;
+    --text: #f4f4f7;
+    --muted: #9699a8;
+    --border: #292c37;
+}
+
+body.dark .item-icon {
+    background: #27243f;
+}
+
+body.dark .action-btn,
+body.dark .close-btn {
+    background: #242631;
+}
+
+/* =========================
+   SMALL SCREENS
+========================= */
+
+@media (max-width: 360px) {
+
+    .top-bar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .medicine-card {
+        padding: 14px;
+    }
+
+    .medicine-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .countdown {
+        font-size: 12px;
+    }
+
+    .add-btn {
+        right: 15px;
+    }
+}
