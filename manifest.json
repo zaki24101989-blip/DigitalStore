@@ -1,0 +1,13 @@
+{
+  "name": "Hydro Reminder",
+  "short_name": "Hydro",
+  "description": "تطبيق ذكي لتذكيرك بشرب الماء",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4fbfc",
+  "theme_color": "#087e8b",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl"
+}

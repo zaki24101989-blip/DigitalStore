@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f0f" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <h1 class="title">Calculator</h1>
+      <button id="copy-btn" class="icon-btn" aria-label="Copy result" title="Copy result">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Display -->
+    <div class="display-section">
+      <div id="expression" class="expression" aria-live="polite"></div>
+      <div id="result" class="result" aria-live="polite">0</div>
+    </div>
+
+    <!-- History -->
+    <div class="history-section">
+      <div class="history-header">
+        <span>History</span>
+        <button id="clear-history" class="text-btn">Clear</button>
+      </div>
+      <div id="history-list" class="history-list"></div>
+    </div>
+
+    <!-- Keypad -->
+    <div class="keypad">
+      <button class="btn btn-func" data-action="clear">AC</button>
+      <button class="btn btn-func" data-action="backspace">⌫</button>
+      <button class="btn btn-func" data-action="percent">%</button>
+      <button class="btn btn-op" data-action="operator" data-value="÷">÷</button>
+
+      <button class="btn btn-num" data-action="number" data-value="7">7</button>
+      <button class="btn btn-num" data-action="number" data-value="8">8</button>
+      <button class="btn btn-num" data-action="number" data-value="9">9</button>
+      <button class="btn btn-op" data-action="operator" data-value="×">×</button>
+
+      <button class="btn btn-num" data-action="number" data-value="4">4</button>
+      <button class="btn btn-num" data-action="number" data-value="5">5</button>
+      <button class="btn btn-num" data-action="number" data-value="6">6</button>
+      <button class="btn btn-op" data-action="operator" data-value="-">−</button>
+
+      <button class="btn btn-num" data-action="number" data-value="1">1</button>
+      <button class="btn btn-num" data-action="number" data-value="2">2</button>
+      <button class="btn btn-num" data-action="number" data-value="3">3</button>
+      <button class="btn btn-op" data-action="operator" data-value="+">+</button>
+
+      <button class="btn btn-func" data-action="toggle-sign">+/−</button>
+      <button class="btn btn-num" data-action="number" data-value="0">0</button>
+      <button class="btn btn-num" data-action="decimal">.</button>
+      <button class="btn btn-eq" data-action="equals">=</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
