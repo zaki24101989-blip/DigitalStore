@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجري الإلكتروني | منتجات رقمية وواقعية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <span>متجري</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">الرئيسية</a>
+                <a href="#products" class="nav-link">المنتجات</a>
+                <a href="#about" class="nav-link">عن المتجر</a>
+                <a href="#contact" class="nav-link">تواصل معنا</a>
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>اكتشف منتجاتنا المميزة</h1>
+                <p>منتجات رقمية جاهزة للتحميل فوراً + منتجات واقعية عالية الجودة</p>
+                <a href="#products" class="btn btn-primary">تسوق الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- المنتجات -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            
+            <!-- فلاتر -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="digital">رقمية</button>
+                <button class="filter-btn" data-filter="physical">واقعية</button>
+            </div>
+
+            <!-- شبكة المنتجات -->
+            <div class="products-grid" id="productsGrid">
+                <!-- المنتجات ستُضاف هنا بواسطة JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- عن المتجر -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">عن متجرنا</h2>
+            <div class="about-content">
+                <p>نقدم لك أفضل المنتجات الرقمية والواقعية بجودة عالية وأسعار منافسة. سواء كنت تبحث عن قوالب، دورات، كتب إلكترونية، أو منتجات ملموسة — نحن هنا لخدمتك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- تواصل معنا -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> email@example.com</p>
+                <p><i class="fas fa-phone"></i> +212 6XX XXX XXX</p>
+                <p><i class="fab fa-whatsapp"></i> واتساب: +212 6XX XXX XXX</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- سلة التسوق (Sidebar) -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- عناصر السلة هنا -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                المجموع: <span id="cartTotal">0</span> درهم
+            </div>
+            <button class="btn btn-primary btn-checkout" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Modal المنتج -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- محتوى المنتج هنا -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 متجري الإلكتروني. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
