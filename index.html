@@ -1,80 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#0f0f0f" />
-  <title>Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#087e8b">
+
+    <meta name="description"
+          content="Hydro Reminder - تطبيق ذكي لتذكيرك بشرب الماء">
+
+    <title>Hydro Reminder 💧</title>
+
+    <link rel="manifest"
+          href="manifest.json">
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
+
 <body>
-  <div class="app">
-    <!-- Header -->
-    <header class="header">
-      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"/>
-          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-      <h1 class="title">Calculator</h1>
-      <button id="copy-btn" class="icon-btn" aria-label="Copy result" title="Copy result">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-        </svg>
-      </button>
-    </header>
 
-    <!-- Display -->
-    <div class="display-section">
-      <div id="expression" class="expression" aria-live="polite"></div>
-      <div id="result" class="result" aria-live="polite">0</div>
+<header class="topbar">
+
+    <div>
+
+        <h1>Hydro Reminder 💧</h1>
+
+        <p>
+            حافظ على ترطيب جسمك
+        </p>
+
     </div>
 
-    <!-- History -->
-    <div class="history-section">
-      <div class="history-header">
-        <span>History</span>
-        <button id="clear-history" class="text-btn">Clear</button>
-      </div>
-      <div id="history-list" class="history-list"></div>
-    </div>
 
-    <!-- Keypad -->
-    <div class="keypad">
-      <button class="btn btn-func" data-action="clear">AC</button>
-      <button class="btn btn-func" data-action="backspace">⌫</button>
-      <button class="btn btn-func" data-action="percent">%</button>
-      <button class="btn btn-op" data-action="operator" data-value="÷">÷</button>
+    <button id="themeBtn">
+        🌙
+    </button>
 
-      <button class="btn btn-num" data-action="number" data-value="7">7</button>
-      <button class="btn btn-num" data-action="number" data-value="8">8</button>
-      <button class="btn btn-num" data-action="number" data-value="9">9</button>
-      <button class="btn btn-op" data-action="operator" data-value="×">×</button>
+</header>
 
-      <button class="btn btn-num" data-action="number" data-value="4">4</button>
-      <button class="btn btn-num" data-action="number" data-value="5">5</button>
-      <button class="btn btn-num" data-action="number" data-value="6">6</button>
-      <button class="btn btn-op" data-action="operator" data-value="-">−</button>
 
-      <button class="btn btn-num" data-action="number" data-value="1">1</button>
-      <button class="btn btn-num" data-action="number" data-value="2">2</button>
-      <button class="btn btn-num" data-action="number" data-value="3">3</button>
-      <button class="btn btn-op" data-action="operator" data-value="+">+</button>
+<main>
 
-      <button class="btn btn-func" data-action="toggle-sign">+/−</button>
-      <button class="btn btn-num" data-action="number" data-value="0">0</button>
-      <button class="btn btn-num" data-action="decimal">.</button>
-      <button class="btn btn-eq" data-action="equals">=</button>
-    </div>
-  </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <!-- بطاقة الماء -->
 
-  <script src="script.js"></script>
+    <section class="water-card">
+
+
+        <div class="progress">
+
+            <svg viewBox="0 0 120 120">
+
+                <circle
+                    class="circle-bg"
+                    cx="60"
+                    cy="60"
+                    r="52">
+                </circle>
+
+
+                <circle
+                    id="progressCircle"
+                    cx="60"
+                    cy="60"
+                    r="52">
+                </circle>
+
+            </svg>
+
+
+            <div class="progress-text">
+
+                <strong id="percentage">
+                    0%
+                </strong>
+
+                <span>
+                    من هدفك
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+
+            <span id="currentWater">
+                0
+            </span>
+
+            ml
+
+        </h2>
+
+
+        <p>
+
+            من أصل
+
+            <span id="goalWater">
+                2000
+            </span>
+
+            ml
+
+        </p>
+
+    </section>
+
+
+
+    <!-- إضافة الماء -->
+
+    <section class="quick-add">
+
+        <h2>
+            إضافة الماء 💧
+        </h2>
+
+
+        <div class="buttons">
+
+
+            <button data-amount="150">
+                +150 ml
+            </button>
+
+
+            <button data-amount="250">
+                +250 ml
+            </button>
+
+
+            <button data-amount="500">
+                +500 ml
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- الإحصائيات -->
+
+    <section class="stats">
+
+
+        <div class="stat">
+
+            <span>
+                💧
+            </span>
+
+            <strong id="cups">
+                0
+            </strong>
+
+            <small>
+                كؤوس
+            </small>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <span>
+                🎯
+            </span>
+
+            <strong id="remaining">
+                2000
+            </strong>
+
+            <small>
+                متبقي ml
+            </small>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <span>
+                🔥
+            </span>
+
+            <strong id="streak">
+                0
+            </strong>
+
+            <small>
+                أيام متتالية
+            </small>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- التذكير -->
+
+    <section class="reminder-card">
+
+
+        <div>
+
+            <h2>
+                ⏰ التذكير
+            </h2>
+
+            <p id="reminderStatus">
+                التذكيرات متوقفة
+            </p>
+
+        </div>
+
+
+        <button id="reminderBtn">
+            تشغيل
+        </button>
+
+
+    </section>
+
+
+
+    <!-- الإعدادات -->
+
+    <section class="settings">
+
+        <h2>
+            ⚙️ الهدف اليومي
+        </h2>
+
+
+        <div class="goal-control">
+
+
+            <button id="minusGoal">
+                −
+            </button>
+
+
+            <strong>
+
+                <span id="goalDisplay">
+                    2000
+                </span>
+
+                ml
+
+            </strong>
+
+
+            <button id="plusGoal">
+                +
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    Hydro Reminder •
+    اشرب الماء واهتم بصحتك 💙
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+
+<!-- تشغيل Service Worker -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./service-worker.js")
+
+            .then(() => {
+
+                console.log(
+                    "Hydro Reminder: Service Worker registered"
+                );
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    "Service Worker error:",
+                    error
+                );
+
+            });
+
+    });
+
+}
+
+</script>
+
+
 </body>
+
 </html>
